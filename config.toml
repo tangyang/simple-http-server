@@ -1,0 +1,8 @@
+pg-address = "192.168.56.101:5432"
+pg-username = "pger"
+pg-password = "pger"
+pg-db-name = "pgerdb"
+pg-poolsize = 50
+pg-readtimeout = 3
+pg-writetimeout = 4
+pg-idletimeout = 5

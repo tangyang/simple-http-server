@@ -1,0 +1,36 @@
+{
+	"ImportPath": "github.com/tangyang/simple-http-server",
+	"GoVersion": "go1.6.2",
+	"Deps": [
+		{
+			"ImportPath": "github.com/BurntSushi/toml",
+			"Comment": "v0.1.0-18-g443a628",
+			"Rev": "443a628bc233f634a75bcbdd71fe5350789f1afa"
+		},
+		{
+			"ImportPath": "github.com/gorilla/context",
+			"Rev": "215affda49addc4c8ef7e2534915df2c8c35c6cd"
+		},
+		{
+			"ImportPath": "github.com/gorilla/mux",
+			"Rev": "94903de8c98a68d8b4483c529b26a5d146e386a2"
+		},
+		{
+			"ImportPath": "github.com/jinzhu/inflection",
+			"Rev": "3272df6c21d04180007eb3349844c89a3856bc25"
+		},
+		{
+			"ImportPath": "github.com/mreiferson/go-options",
+			"Rev": "7c174072188d0cfbe6f01bb457626abb22bdff52"
+		},
+		{
+			"ImportPath": "gopkg.in/bsm/ratelimit.v1",
+			"Rev": "db14e161995a5177acef654cb0dd785e8ee8bc22"
+		},
+		{
+			"ImportPath": "gopkg.in/pg.v4",
+			"Comment": "v4.6.1",
+			"Rev": "77f19a614547bded1fbb5a5b8937b741b65a03c7"
+		}
+	]
+}
