@@ -55,7 +55,7 @@ func NewConfig() *Config {
 }
 
 func defaultConfig() *Config {
-	return &Config{"80", defaultTcpAddress, "", "", "", 10, 5, 5, 5, false}
+	return &Config{"80", defaultTcpAddress, "pger", "pger", "pgerdb", 10, 5, 5, 5, false}
 }
 
 func fileConfig(configFile string) map[string]interface{} {
