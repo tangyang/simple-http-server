@@ -1,6 +1,6 @@
 # a simple http server for tantan app
 
-This is a simple restful http server for simplified tantan backend, which providing the features below:
+This is a simple restful http server for simplified tantan backend, which provide the features below:
 
 * add a new user 
 * get all users
@@ -38,7 +38,7 @@ simple-http-server -init //create database schema when you start the server the 
 simple-http-server // start the server
 ```
 
-We also provide a few configuration parameters which are supposed to be in a config.toml file in the same directory of simple-http-server. Here is an example of these configuration parameters: 
+We also provide a few configuration parameters which are supposed to be in a config.toml file in the same directory of ***simple-http-server***. Here is an example of these configuration parameters: 
 
 ```
 http-port="8001"   //http server port
