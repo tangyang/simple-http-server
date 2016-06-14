@@ -6,6 +6,7 @@ import (
 	"github.com/tangyang/simple-http-server/config"
 	"github.com/tangyang/simple-http-server/controller"
 	"net/http"
+	"strings"
 )
 
 type dispatcher struct {
@@ -21,7 +22,11 @@ func initHttpServer(conf *config.Config) {
 	r := mux.NewRouter()
 	controller.InitRouters(r, conf)
 	go func() {
-		err := http.ListenAndServe(":8000", r)
-		fmt.Println(err)
+		port := strings.Join([]string{"0.0.0.0", conf.HttpPort}, ":")
+		err := http.ListenAndServe(port, r)
+		if err != nil {
+			fmt.Println(err)
+		}
 	}()
+	fmt.Println("Http server is initialized... ")
 }

@@ -15,6 +15,7 @@ const (
 )
 
 type Config struct {
+	HttpPort       string `flag:"http-port" cfg:"http-port"`
 	PgAddress      string `flag:"pg-address" cfg:"pg-address"`
 	PgUsername     string `flag:"pg-username" cfg:"pg-username"`
 	PgPassword     string `flag:"pg-password" cfg:"pg-password"`
@@ -39,6 +40,7 @@ func NewConfig() *Config {
 
 	verbose := flagSet.Lookup("verbose")
 	if verbose != nil && verbose.Value.(flag.Getter).Get().(bool) {
+		fmt.Printf("http-port: %s\n", config.HttpPort)
 		fmt.Printf("pg-address: %s\n", config.PgAddress)
 		fmt.Printf("pg-username: %s\n", config.PgUsername)
 		fmt.Printf("pg-password: %s\n", config.PgPassword)
@@ -53,7 +55,7 @@ func NewConfig() *Config {
 }
 
 func defaultConfig() *Config {
-	return &Config{defaultTcpAddress, "", "", "", 10, 5, 5, 5, false}
+	return &Config{"80", defaultTcpAddress, "", "", "", 10, 5, 5, 5, false}
 }
 
 func fileConfig(configFile string) map[string]interface{} {
@@ -67,6 +69,7 @@ func fileConfig(configFile string) map[string]interface{} {
 
 func consoleConfig() *flag.FlagSet {
 	flagSet := flag.NewFlagSet("tantan", flag.ExitOnError)
+	flagSet.String("http-port", "80", "http server port")
 	flagSet.String("pg-address", defaultTcpAddress, "postgresql address, eg. 0:0:0:0:{port}")
 	flagSet.String("pg-username", "", "postgresql db user name")
 	flagSet.String("pg-password", "", "postgresql db user password")
