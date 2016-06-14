@@ -12,11 +12,14 @@ type handler func(c *config.Config, w http.ResponseWriter, r *http.Request) inte
 var routes = map[string]map[string]handler{
 	"GET": {
 		"/users": getAllUsers,
+		"/users/{userId:[0-9]+}/relationships": getAllRelations,
 	},
 	"POST": {
 		"/users": addUser,
 	},
-	"PUT":    {},
+	"PUT": {
+		"/users/{userId:[0-9]+}/relationships/{otherUserId:[0-9]+}": addNewRelation,
+	},
 	"DELETE": {},
 }
 

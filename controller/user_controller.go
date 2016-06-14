@@ -5,6 +5,7 @@ import (
 	"github.com/tangyang/simple-http-server/config"
 	"github.com/tangyang/simple-http-server/model"
 	"github.com/tangyang/simple-http-server/service"
+	"github.com/tangyang/simple-http-server/to"
 	"net/http"
 )
 
@@ -23,10 +24,10 @@ func addUser(c *config.Config, w http.ResponseWriter, r *http.Request) interface
 	if err != nil {
 		return model.Result{Code: http.StatusInternalServerError, Message: "Something is wrong with server. "}
 	}
-	return model.Result{Code: http.StatusOK, Message: "", Data: userService.GetUserByName(c, name)}
+	return model.Result{Code: http.StatusOK, Message: "", Data: to.NewUserTo(userService.GetUserByName(c, name))}
 }
 
 func getAllUsers(c *config.Config, w http.ResponseWriter, r *http.Request) interface{} {
 	users := userService.GetAllUsers(c)
-	return model.Result{Code: http.StatusOK, Message: "", Data: users}
+	return model.Result{Code: http.StatusOK, Message: "", Data: to.NewUserToArray(users)}
 }
