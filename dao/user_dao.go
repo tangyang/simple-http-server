@@ -10,6 +10,12 @@ import (
 type UserDao struct {
 }
 
+func (u *UserDao) CreateUserSchema(conf *config.Config) error {
+	c := NewPostgreConnector(conf)
+	_, err := c.DB.Exec("CREATE TABLE users (id bigserial PRIMARY key , name CHARACTER VARYING)")
+	return err
+}
+
 func (u *UserDao) AddUser(conf *config.Config, user *model.User) (bool, error) {
 	c := NewPostgreConnector(conf)
 	b, err := c.DB.Model(user).Where("name=?", user.Name).SelectOrCreate()

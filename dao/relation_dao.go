@@ -10,6 +10,12 @@ import (
 type RelationDao struct {
 }
 
+func (r *RelationDao) CreateRelationSchema(conf *config.Config) error {
+	c := NewPostgreConnector(conf)
+	_, err := c.DB.Exec("CREATE TABLE relations (id bigserial PRIMARY key , userid bigint, otheruserid bigint, status smallint)")
+	return err
+}
+
 func (r *RelationDao) AddOrUpdateRelation(conf *config.Config, relation *model.Relation) (bool, error) {
 	c := NewPostgreConnector(conf)
 	b, err := c.DB.Model(relation).Where("userid=? and otheruserid=?", relation.Userid, relation.Otheruserid).SelectOrCreate()

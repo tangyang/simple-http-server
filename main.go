@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/tangyang/simple-http-server/config"
+	"github.com/tangyang/simple-http-server/dao"
 	tpprof "github.com/tangyang/simple-http-server/pprof"
 	"os"
 	"os/signal"
@@ -21,7 +22,18 @@ func main() {
 	conf := config.NewConfig()
 
 	if conf.InitDB {
-		fmt.Println("Init database schema")
+		userDao := &dao.UserDao{}
+		relationDao := &dao.RelationDao{}
+		err := userDao.CreateUserSchema(conf)
+		if err != nil {
+			fmt.Printf("Fail to create user schema, error: %s\n", err.Error())
+			return
+		}
+		err = relationDao.CreateRelationSchema(conf)
+		if err != nil {
+			fmt.Printf("Fail to create relation schema, error: %s\n", err.Error())
+		}
+		fmt.Println("Init database schema... ")
 		return
 	}
 
