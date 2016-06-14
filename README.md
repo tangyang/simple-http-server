@@ -11,7 +11,7 @@ This is a simple restful http server for simplified tantan backend, which provid
 # Table of contents
 
 * [Installation](#installation)
-* [Get started](#Getstarted)
+* [Get started](#getstarted)
 * [Api documents](#documents)
 
 ## Installation
