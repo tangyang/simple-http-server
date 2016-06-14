@@ -11,7 +11,7 @@ This is a simple restful http server for simplified tantan backend, which provid
 # Table of contents
 
 * [Installation](#installation)
-* [Get started](#getstarted)
+* [Get started](#Getstarted)
 * [Api documents](#documents)
 
 ## Installation
@@ -30,7 +30,7 @@ docker run -i -t  -d -p 5432:5432 mypostgresql:9.4
 
 ``` 
 
-## Get started
+## Getstarted
 
 ```
 simple-http-server -init //create database schema when you start the server the first time
